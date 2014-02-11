@@ -43,14 +43,10 @@ typedef NSUInteger SVProgressHUDMaskType;
 + (void)setOffsetFromCenter:(UIOffset)offset;
 + (void)resetOffsetFromCenter;
 
-+ (void)show;
-+ (void)showWithMaskType:(SVProgressHUDMaskType)maskType;
-+ (void)showWithStatus:(NSString*)status;
-+ (void)showWithStatus:(NSString*)status maskType:(SVProgressHUDMaskType)maskType;
-
 + (void)showProgress:(float)progress;
 + (void)showProgress:(float)progress status:(NSString*)status;
 + (void)showProgress:(float)progress status:(NSString*)status maskType:(SVProgressHUDMaskType)maskType;
++ (void)showDefaultProgress:(float)progress;
 
 + (void)setStatus:(NSString*)string; // change the HUD loading status while it's showing
 
@@ -63,5 +59,24 @@ typedef NSUInteger SVProgressHUDMaskType;
 + (void)dismiss;
 
 + (BOOL)isVisible;
+
+
+#pragma mark - Dismiss Methods
+
++ (void)dismissWithSuccess:(NSString*)successString;
++ (void)dismissWithSuccess:(NSString *)successString afterDelay:(NSTimeInterval)seconds;
++ (void)dismissWithError:(NSString*)errorString;
++ (void)dismissWithError:(NSString *)errorString afterDelay:(NSTimeInterval)seconds;
+- (void)dismissWithStatus:(NSString*)string error:(BOOL)error;
+
+#pragma mark - Show Methods
+
++ (void)showSuccessWithStatus:(NSString *)string duration:(NSTimeInterval)duration;
++ (void)showErrorWithStatus:(NSString *)string duration:(NSTimeInterval)duration;
+
++ (void)show;
++ (void)showWithMaskType:(SVProgressHUDMaskType)maskType;
++ (void)showWithStatus:(NSString*)status;
++ (void)showWithStatus:(NSString*)status maskType:(SVProgressHUDMaskType)maskType;
 
 @end
